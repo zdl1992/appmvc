@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <mapper namespace="com.huike.app.dao.IOderItemDao">
+<resultMap id="orderitemMap" type="com.huike.app.bean.OrderItemBean">
+    <id property="orderItemId" column="orderItemId"></id>
+    <result property="quantity" column="quantity"></result>
+    <result property="subtotal" column="subtotal"></result>
+    <result property="bid" column="bid"></result>
+    <result property="bname" column="bname"></result>
+    <result property="currPrice" column="currPrice"></result>
+    <result property="image_b" column="image_b"></result>
+    <result property="oid" column="oid"></result>
+</resultMap>
+
+</mapper>

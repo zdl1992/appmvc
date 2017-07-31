@@ -28,7 +28,7 @@
   	<li>
 	  <div class="inner">
 	  <!-- 点击图片进行按照ID去查询 -->
-	    <a class="pic" href="${pageContext.request.contextPath }/servlet/BookServlet?method=queryBookByBid&bid=${book.bid}"><img src="<c:url value='/${book.image_b }'/>" border="0"/></a>
+	    <a class="pic" href="/BookAction/descBook.do?bid=${book.bid}"><img src="<c:url value='/${book.image_b }'/>" border="0"/></a>
 	    <p class="price">
 			<span class="price_n">&yen;${book.currPrice }</span>
 			<span class="price_r">&yen;${book.price }</span>

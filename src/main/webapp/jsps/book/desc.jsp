@@ -17,7 +17,6 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<link rel="stylesheet" type="text/css" href="<c:url value='/jsps/pager/pager.css'/>" />
-    <script type="text/javascript" src="<c:url value='/jsps/pager/pager.css'/>"></script>
 	<script src="<c:url value='/jquery/jquery-1.5.1.js'/>"></script>
 	
 	<link rel="stylesheet" type="text/css" href="<c:url value='/jsps/css/book/desc.css'/>">
@@ -64,8 +63,7 @@
 		</table>
 		<div class="divForm">
 			<!-- form1表单就是添加商品到购物车 -->
-			<form id="form1" action="/servlet/CartServlet" method="post">
-				<input type="hidden" name="method" value="addCart"/>
+			<form id="form1" action="/cartItemAction/addCartItem.do" method="post">
 				<input type="hidden" name="bid" value="${book.bid }"/>
   				我要买：<input id="cnt" style="width: 40px;text-align: center;" type="text" name="quantity" value="1"/>本
   			</form>

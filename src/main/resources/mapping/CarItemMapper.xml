@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huike.app.dao.ICartItemDao">
+    <resultMap id="cartItemMap" type="com.huike.app.bean.CartItem">
+        <id property="cartItemId" column="cartItemId"/>
+        <result property="quantity" column="quantity"/>
+        <result property="bid" column="bid"/>
+        <result property="uid" column="uid"/>
+        <result property="orderBy" column="orderBy"/>
+        <association property="book" column="bid" resultMap="com.huike.app.dao.IBookDao.bookMap"></association>
+    </resultMap>
+
+    <select id="queryCartItemByUidAndBid" parameterType="CartItem"  resultType="CartItem" resultMap="cartItemMap">
+      select * from t_cartitem where bid =#{cartItem.bid} and uid = #{cartItem.uid}
+    </select>
+
+    <insert id="insertCartItem" parameterType="CartItem">
+      insert into t_cartitem (cartItemId,uid,bid,quantity) values
+      (#{cartItem.cartItemId},#{cartItem.uid},#{cartItem.bid},#{cartItem.quantity})
+    </insert>
+
+    <update id="updateQuantityByUidAndBid"  parameterType="CartItem" >
+       update t_cartitem set quantity = quantity + #{cartItem.quantity} where uid = #{cartItem.uid} and bid = #{cartItem.bid}
+    </update>
+
+    <!--<select id="queryCartItemsByUid" parameterType="String" resultType="CartItem">-->
+    <select id="queryCartItemsByUid" parameterType="String" resultMap="cartItemMap">
+        select * from t_cartitem join t_book on t_cartitem.bid = t_book.bid where uid = #{uid}
+    </select>
+
+    <delete id="delectCartItems">
+       DELETE FROM  t_cartitem WHERE cartItemId = #{cartItemIds}
+    </delete>
+
+    <delete id="delectListCatItem">
+         DELETE FROM  t_cartitem WHERE cartItemId in
+         <foreach collection="cartItemIds" item="cartItemId"  open="(" separator="," close=")">
+             #{cartItemId}
+         </foreach>
+    </delete>
+    <select id="queryListCarItem" resultType="CartItem" resultMap="cartItemMap">
+         SELECT * FROM  t_cartitem join t_book on t_cartitem.bid = t_book.bid WHERE cartItemId in
+         <foreach collection="cartItemIds" item="item" open="(" close=")" separator=",">
+             #{item}
+         </foreach>
+    </select>
+
+</mapper>
