@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/jdbc.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/pageSize.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/com/huike/app/dao/IBookdaoTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/com/huike/app/dao/ICarItemdaoTest.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/com/huike/app/dao/ICaterorydaoTest.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/com/huike/app/services/IBookServicesTest.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/test/java/com/huike/app/services/ICateroryServicesTest.java" charset="UTF-8" />
